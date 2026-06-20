@@ -25,11 +25,6 @@ public class SecurityConfig {
 
     private static  final String[] WHITE_LIST_URL = {
             "/api/v1/auth/**",
-            "/customers/**",
-            "/customers/**",
-            "/api/v1/products/**",
-            "/api/v1/profiles/**",
-            "/api/v1/wallets/**",
             "/v2/api-docs",
             "/external/**", //** is called a wild card
             "/v3/api-docs/**",
@@ -49,7 +44,6 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/auth/**").permitAll()
                         .requestMatchers(
                                 WHITE_LIST_URL
                         ).permitAll()
